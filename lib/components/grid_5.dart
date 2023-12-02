@@ -26,7 +26,7 @@ class _GridState extends State<Grid> {
     return GridView.builder(
         physics: const NeverScrollableScrollPhysics(),
         padding: const EdgeInsets.fromLTRB(36, 20, 36, 20),
-        itemCount: 30,
+        itemCount: 25,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           mainAxisSpacing: 4,
           crossAxisSpacing: 4,
