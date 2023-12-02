@@ -1,18 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:wordle_clone/providers/controller.dart';
 import 'package:wordle_clone/pages/home.dart';
 import 'package:wordle_clone/pages/settings.dart';
-// import 'package:wordle_clone/pages/wordle5.dart';
 
-class Home1 extends StatelessWidget {
+class Home1 extends StatefulWidget {
   const Home1({Key? key}) : super(key: key);
+
+  @override
+  _Home1State createState() => _Home1State();
+}
+
+class _Home1State extends State<Home1> {
+  @override
+  void initState() {
+    super.initState();
+
+    // Access the Controller and reset the game
+    // Provider.of<Controller>(context, listen: false).resetGame()
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('WORD SEEKER'),
-                centerTitle: true,
-
+        centerTitle: true,
       ),
       body: Center(
         child: Column(

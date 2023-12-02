@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wordle_clone/pages/settings.dart';
@@ -12,27 +11,33 @@ import '../providers/controller.dart';
 
 class Wordle5 extends StatefulWidget {
   const Wordle5({Key? key}) : super(key: key);
-  
 
   @override
-  State<Wordle5> createState() => _HomePageState();
+  State<Wordle5> createState() => _Wordle5State();
 }
 
-class _HomePageState extends State<Wordle5> {
+class _Wordle5State extends State<Wordle5> {
   late String _word;
 
   @override
-  void initState() {
-    final r = Random().nextInt(words.length);
-    _word = words[r];
+void initState() {
+  // Reset the game
+  Provider.of<Controller>(context, listen: false).resetGame();
 
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      Provider.of<Controller>(context, listen: false)
-          .setCorrectWord(word: _word);
-    });
+  // Reset the tile colors
+  // Provider.of<Controller>(context, listen: false).resetKeyboardColors();
 
-    super.initState();
-  }
+  // Generate a new word
+  final r = Random().nextInt(words.length);
+  _word = words[r];
+
+  // Set the correct word in the Controller
+  WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+    Provider.of<Controller>(context, listen: false).setCorrectWord(word: _word);
+  });
+
+  super.initState();
+}
 
   @override
   Widget build(BuildContext context) {
@@ -62,25 +67,32 @@ class _HomePageState extends State<Wordle5> {
                   () {
                     if (mounted) {
                       showDialog(
-                          context: context, builder: (_) => const StatsBox());
+                        context: context,
+                        builder: (_) => const StatsBox(),
+                      );
                     }
                   },
                 );
               }
               return IconButton(
-                  onPressed: () async {
-                    showDialog(
-                        context: context, builder: (_) => const StatsBox());
-                  },
-                  icon: const Icon(Icons.bar_chart_outlined));
+                onPressed: () async {
+                  showDialog(
+                    context: context,
+                    builder: (_) => const StatsBox(),
+                  );
+                },
+                icon: const Icon(Icons.bar_chart_outlined),
+              );
             },
           ),
           IconButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => const Settings()));
-              },
-              icon: const Icon(Icons.settings))
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => const Settings()),
+              );
+            },
+            icon: const Icon(Icons.settings),
+          ),
         ],
       ),
       body: const Column(

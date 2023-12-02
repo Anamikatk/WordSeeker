@@ -1,14 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wordle_clone/constants/answer_stages.dart';
-// import 'package:wordle_clone/constants/words.dart';
 import 'package:wordle_clone/models/tile_model.dart';
 import 'package:wordle_clone/utils/calculate_chart_stats.dart';
 
 import '../utils/calculate_stats.dart';
 import '../data/keys_map.dart';
 
-class Controller extends ChangeNotifier {
+class
+ 
+Controller
+ 
+extends
+ 
+ChangeNotifier
+ 
+{
   bool checkLine = false,
       backOrEnterTapped = false,
       gameWon = false,
@@ -17,6 +24,28 @@ class Controller extends ChangeNotifier {
   String correctWord = "";
   int currentTile = 0, currentRow = 0;
   List<TileModel> tilesEntered = [];
+  List<AnswerStage> answerStages = [];
+
+  void resetGame() {
+    checkLine = false;
+    backOrEnterTapped = false;
+    gameWon = false;
+    gameCompleted = false;
+    notEnoughLetters = false;
+    correctWord = "";
+    currentTile = 0;
+    currentRow = 0;
+    tilesEntered = [];
+
+    for (final key in keysMap.keys) {
+      keysMap[key] = AnswerStage.notAnswered;
+    }
+
+    notifyListeners();
+  }
+
+
+
 
   setCorrectWord({required String word}) => correctWord = word;
 
