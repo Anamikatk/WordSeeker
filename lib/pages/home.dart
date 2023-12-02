@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:wordle_clone/pages/wordle5.dart';
+import 'package:wordle_clone/pages/game_menu.dart';
+import 'package:wordle_clone/pages/settings.dart';
 
-class HomePage1 extends StatefulWidget {
-  const HomePage1({Key? key}) : super(key: key);
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
 
   @override
-  _HomePage1State createState() => _HomePage1State();
+  _Home1State createState() => _Home1State();
 }
 
-class _HomePage1State extends State<HomePage1> {
+class _Home1State extends State<Home> {
   @override
   void initState() {
     super.initState();
+
+    // Access the Controller and reset the game
+    // Provider.of<Controller>(context, listen: false).resetGame()
   }
 
   @override
@@ -25,34 +29,30 @@ class _HomePage1State extends State<HomePage1> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Wordle5()),
-                );
-              },
-              child: const Text('4 Letters'),
+            SizedBox(
+              width: 150.0,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const GameMenu()),
+                  );
+                },
+                child: const Text('PLAY'),
+              ),
             ),
             const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Wordle5()),
-                );
-              },
-              child: const Text('5 Letters'),
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Wordle5()),
-                );
-              },
-              child: const Text('6 Letters'),
+            SizedBox(
+              width: 150.0,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Settings()),
+                  );
+                },
+                child: const Text('Settings'),
+              ),
             ),
           ],
         ),
