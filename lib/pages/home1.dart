@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:wordle_clone/providers/controller.dart';
 import 'package:wordle_clone/pages/home.dart';
 import 'package:wordle_clone/pages/settings.dart';
 

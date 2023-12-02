@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:wordle_clone/providers/controller.dart';
 import 'package:wordle_clone/pages/wordle5.dart';
 
 class HomePage1 extends StatefulWidget {
@@ -14,9 +12,6 @@ class _HomePage1State extends State<HomePage1> {
   @override
   void initState() {
     super.initState();
-
-    // Access the Controller and reset the game
-    // Provider.of<Controller>(context, listen: false).resetGame();
   }
 
   @override
