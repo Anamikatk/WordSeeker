@@ -52,6 +52,10 @@ void initState() {
               if (notifier.notEnoughLetters) {
                 runQuickBox(context: context, message: 'Not Enough Letters');
               }
+              if (notifier.notValidWord) {
+                runQuickBox(context: context, message: 'Invalid Word');
+                notifier.notValidWord = false;
+              }
               if (notifier.gameCompleted) {
                 if (notifier.gameWon) {
                   if (notifier.currentRow == 6) {

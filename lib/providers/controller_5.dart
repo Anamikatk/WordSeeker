@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wordle_clone/constants/answer_stages.dart';
+import 'package:wordle_clone/constants/words_4.dart';
+import 'package:wordle_clone/constants/words_5.dart';
 import 'package:wordle_clone/constants/words_6.dart';
 import 'package:wordle_clone/models/tile_model.dart';
 import 'package:wordle_clone/utils/calculate_chart_stats.dart';
@@ -19,8 +21,13 @@ class Controller_5 extends ChangeNotifier {
   int currentTile = 0, currentRow = 0;
   List<TileModel> tilesEntered = [];
 
-  final Set<String> validWords = words_6.toSet(); // Use set for faster word lookup
-  bool validateWord({required String enteredWord}) => validWords.contains(enteredWord);
+  final Set<String> validWords4 = words_4.toSet();
+  final Set<String> validWords5 = words_5.toSet();
+  final Set<String> validWords6 = words_6.toSet(); // Use set for faster word lookup
+  bool validateWord4({required String enteredWord}) => validWords4.contains(enteredWord);
+  bool validateWord5({required String enteredWord}) => validWords5.contains(enteredWord);
+  bool validateWord6({required String enteredWord}) => validWords6.contains(enteredWord);
+
 
   void resetGame() {
     checkLine = false;
@@ -131,8 +138,14 @@ class Controller_5 extends ChangeNotifier {
     }
 
     guessedWord = guessed.join();
-
     remainingCorrect = correctWord.characters.toList();
+
+    if (!validateWord5(enteredWord: guessedWord)) {
+      // Display an error message or notification to the user that the word is not valid
+      notValidWord = true; // Or use a separate flag for invalid word
+      notifyListeners();
+      return;
+    }
 
     if (guessedWord == correctWord) {
 
@@ -211,6 +224,13 @@ class Controller_5 extends ChangeNotifier {
     guessedWord = guessed.join();
     remainingCorrect = correctWord.characters.toList();
 
+    if (!validateWord4(enteredWord: guessedWord)) {
+      // Display an error message or notification to the user that the word is not valid
+      notValidWord = true; // Or use a separate flag for invalid word
+      notifyListeners();
+      return;
+    }
+
     if (guessedWord == correctWord) {
       for (int i = currentRow * 4; i < (currentRow * 4) + 4; i++) {
         tilesEntered[i].answerStage = AnswerStage.correct;
@@ -287,7 +307,7 @@ class Controller_5 extends ChangeNotifier {
     guessedWord = guessed.join();
     remainingCorrect = correctWord.characters.toList();
 
-  if (!validateWord(enteredWord: guessedWord)) {
+  if (!validateWord6(enteredWord: guessedWord)) {
     // Display an error message or notification to the user that the word is not valid
     notValidWord = true; // Or use a separate flag for invalid word
     notifyListeners();
