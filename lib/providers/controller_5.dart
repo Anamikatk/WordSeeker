@@ -1,30 +1,26 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wordle_clone/constants/answer_stages.dart';
+import 'package:wordle_clone/constants/words_6.dart';
 import 'package:wordle_clone/models/tile_model.dart';
 import 'package:wordle_clone/utils/calculate_chart_stats.dart';
 
 import '../utils/calculate_stats.dart';
 import '../data/keys_map.dart';
 
-class
- 
-Controller_5
- 
-extends
- 
-ChangeNotifier
- 
-{
+class Controller_5 extends ChangeNotifier {
   bool checkLine = false,
       backOrEnterTapped = false,
       gameWon = false,
       gameCompleted = false,
-      notEnoughLetters = false;
+      notEnoughLetters = false,
+      notValidWord = false;
   String correctWord = "";
   int currentTile = 0, currentRow = 0;
   List<TileModel> tilesEntered = [];
-  List<AnswerStage> answerStages = [];
+
+  final Set<String> validWords = words_6.toSet(); // Use set for faster word lookup
+  bool validateWord({required String enteredWord}) => validWords.contains(enteredWord);
 
   void resetGame() {
     checkLine = false;
@@ -43,10 +39,6 @@ ChangeNotifier
 
     notifyListeners();
   }
-
-
-
-
   setCorrectWord({required String word}) => correctWord = word;
 
   setKeyTapped5({required String value}) {
@@ -294,6 +286,13 @@ ChangeNotifier
 
     guessedWord = guessed.join();
     remainingCorrect = correctWord.characters.toList();
+
+  if (!validateWord(enteredWord: guessedWord)) {
+    // Display an error message or notification to the user that the word is not valid
+    notValidWord = true; // Or use a separate flag for invalid word
+    notifyListeners();
+    return;
+  }
 
     if (guessedWord == correctWord) {
       for (int i = currentRow * 6; i < (currentRow * 6) + 6; i++) {
