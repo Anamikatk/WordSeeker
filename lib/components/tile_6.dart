@@ -2,9 +2,9 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:wordle_clone/constants/answer_stages.dart';
-import 'package:wordle_clone/constants/colors.dart';
-import 'package:wordle_clone/providers/controller_5.dart';
+import 'package:WordSeeker/constants/answer_stages.dart';
+import 'package:WordSeeker/constants/colors.dart';
+import 'package:WordSeeker/providers/controller_5.dart';
 
 class Tile extends StatefulWidget {
   const Tile({required this.index,

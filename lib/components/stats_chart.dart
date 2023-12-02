@@ -1,6 +1,6 @@
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:provider/provider.dart';
-import 'package:wordle_clone/providers/theme_provider.dart';
+import 'package:WordSeeker/providers/theme_provider.dart';
 
 import '../models/chart_model.dart';
 import '../utils/chart_series.dart';

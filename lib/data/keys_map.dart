@@ -1,4 +1,4 @@
-import 'package:wordle_clone/constants/answer_stages.dart';
+import 'package:WordSeeker/constants/answer_stages.dart';
 
 Map<String, AnswerStage> keysMap = {
   'Q':AnswerStage.notAnswered,

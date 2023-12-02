@@ -1,4 +1,4 @@
-# wordle_clone
+# WordSeeker
 
 A new Flutter project.
 

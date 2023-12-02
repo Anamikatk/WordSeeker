@@ -1,6 +1,6 @@
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:wordle_clone/models/chart_model.dart';
+import 'package:WordSeeker/models/chart_model.dart';
 
 Future<List<charts.Series<ChartModel, String>>> getSeries() async {
   List<ChartModel> data = [];

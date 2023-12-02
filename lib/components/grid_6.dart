@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:wordle_clone/animations/bounce.dart';
-import 'package:wordle_clone/components/tile_6.dart';
+import 'package:WordSeeker/animations/bounce.dart';
+import 'package:WordSeeker/components/tile_6.dart';
 
 import '../animations/dance.dart';
 import '../providers/controller_5.dart';

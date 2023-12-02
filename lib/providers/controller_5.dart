@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:wordle_clone/constants/answer_stages.dart';
-import 'package:wordle_clone/constants/words_4.dart';
-import 'package:wordle_clone/constants/words_5.dart';
-import 'package:wordle_clone/constants/words_6.dart';
-import 'package:wordle_clone/models/tile_model.dart';
-import 'package:wordle_clone/utils/calculate_chart_stats.dart';
+import 'package:WordSeeker/constants/answer_stages.dart';
+import 'package:WordSeeker/constants/words_4.dart';
+import 'package:WordSeeker/constants/words_5.dart';
+import 'package:WordSeeker/constants/words_6.dart';
+import 'package:WordSeeker/models/tile_model.dart';
+import 'package:WordSeeker/utils/calculate_chart_stats.dart';
 
 import '../utils/calculate_stats.dart';
 import '../data/keys_map.dart';

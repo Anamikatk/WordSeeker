@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:wordle_clone/pages/wordle4.dart';
-import 'package:wordle_clone/pages/wordle6.dart';
-import 'package:wordle_clone/pages/wordle5.dart';
+import 'package:WordSeeker/pages/wordle4.dart';
+import 'package:WordSeeker/pages/wordle6.dart';
+import 'package:WordSeeker/pages/wordle5.dart';
 
 class GameMenu extends StatefulWidget {
   const GameMenu({Key? key}) : super(key: key);

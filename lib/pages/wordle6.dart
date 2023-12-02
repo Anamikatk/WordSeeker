@@ -1,8 +1,8 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:wordle_clone/pages/settings.dart';
-import 'package:wordle_clone/utils/quick_box.dart';
+import 'package:WordSeeker/pages/settings.dart';
+import 'package:WordSeeker/utils/quick_box.dart';
 import '../components/grid_6.dart';
 import '../components/keyboard_row_6.dart';
 import '../components/stats_box.dart';

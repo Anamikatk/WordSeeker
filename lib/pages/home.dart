@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wordle_clone/pages/game_menu.dart';
-import 'package:wordle_clone/pages/settings.dart';
+import 'package:WordSeeker/pages/game_menu.dart';
+import 'package:WordSeeker/pages/settings.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);

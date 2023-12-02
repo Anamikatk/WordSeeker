@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:wordle_clone/providers/theme_provider.dart';
-import 'package:wordle_clone/utils/quick_box.dart';
+import 'package:WordSeeker/providers/theme_provider.dart';
+import 'package:WordSeeker/utils/quick_box.dart';
 
 import '../utils/theme_preferences.dart';
 

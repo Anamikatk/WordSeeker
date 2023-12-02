@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:wordle_clone/pages/home.dart';
-// import 'package:wordle_clone/pages/home_page.dart';
-import 'package:wordle_clone/providers/controller_5.dart';
-// import 'package:wordle_clone/providers/controller_4.dart';
-// import 'package:wordle_clone/pages/home_page.dart';
-import 'package:wordle_clone/providers/theme_provider.dart';
-import 'package:wordle_clone/utils/theme_preferences.dart';
-import 'package:wordle_clone/constants/themes.dart';
+import 'package:WordSeeker/pages/home.dart';
+// import 'package:WordSeeker/pages/home_page.dart';
+import 'package:WordSeeker/providers/controller_5.dart';
+// import 'package:WordSeeker/providers/controller_4.dart';
+// import 'package:WordSeeker/pages/home_page.dart';
+import 'package:WordSeeker/providers/theme_provider.dart';
+import 'package:WordSeeker/utils/theme_preferences.dart';
+import 'package:WordSeeker/constants/themes.dart';
 
 
 void main() {
