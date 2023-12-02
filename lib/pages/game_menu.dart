@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wordle_clone/pages/wordle4.dart';
-// import 'package:wordle_clone/pages/wordle4.dart';
+import 'package:wordle_clone/pages/wordle6.dart';
 import 'package:wordle_clone/pages/wordle5.dart';
 
 class GameMenu extends StatefulWidget {
@@ -51,7 +51,7 @@ class _HomePage1State extends State<GameMenu> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Wordle5()),
+                  MaterialPageRoute(builder: (context) => const Wordle6()),
                 );
               },
               child: const Text('6 Letters'),
