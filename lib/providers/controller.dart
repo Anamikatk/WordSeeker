@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wordle_clone/constants/answer_stages.dart';
-import 'package:wordle_clone/constants/words.dart';
+// import 'package:wordle_clone/constants/words.dart';
 import 'package:wordle_clone/models/tile_model.dart';
 import 'package:wordle_clone/utils/calculate_chart_stats.dart';
 
