@@ -9,7 +9,7 @@ import '../data/keys_map.dart';
 
 class
  
-Controller
+Controller_5
  
 extends
  
@@ -49,12 +49,12 @@ ChangeNotifier
 
   setCorrectWord({required String word}) => correctWord = word;
 
-  setKeyTapped({required String value}) {
+  setKeyTapped5({required String value}) {
      
     if (value == 'ENTER') {
       backOrEnterTapped = true;
       if (currentTile == 5 * (currentRow + 1)) {
-        checkWord();
+        checkWord5();
       } else {
         notEnoughLetters = true;
       }
@@ -76,9 +76,35 @@ ChangeNotifier
     }
     notifyListeners();
   }
+  setKeyTapped4({required String value}) {
+    if (value == 'ENTER') {
+      backOrEnterTapped = true;
+      if (currentTile == 4 * (currentRow + 1)) {
+        checkWord4();
+      } else {
+        notEnoughLetters = true;
+      }
+    } else if (value == 'BACK') {
+      backOrEnterTapped = true;
+      notEnoughLetters = false;
+      if (currentTile > 4 * (currentRow + 1) - 4) {
+        currentTile--;
+        tilesEntered.removeLast();
+      }
+    } else {
+      backOrEnterTapped = false;
+      notEnoughLetters = false;
+      if (currentTile < 4 * (currentRow + 1)) {
+        tilesEntered.add(
+            TileModel(letter: value, answerStage: AnswerStage.notAnswered));
+        currentTile++;
+      }
+    }
+    notifyListeners();
+  }
 
 
-  checkWord() {
+  checkWord5() {
     List<String> guessed = [], remainingCorrect = [];
     String guessedWord = "";
 
@@ -128,6 +154,82 @@ ChangeNotifier
         }
       }
       for (int i = currentRow * 5; i < (currentRow * 5) + 5; i++) {
+        if (tilesEntered[i].answerStage == AnswerStage.notAnswered) {
+          tilesEntered[i].answerStage = AnswerStage.incorrect;
+
+          final results = keysMap.entries
+              .where((element) => element.key == tilesEntered[i].letter);
+          if (results.single.value == AnswerStage.notAnswered) {
+            keysMap.update(
+                tilesEntered[i].letter, (value) => AnswerStage.incorrect);
+          }
+        }
+      }
+    }
+    checkLine = true;
+    currentRow++;
+
+    if (currentRow == 6) {
+      gameCompleted = true;
+    }
+
+    if (gameCompleted) {
+      calculateStats(gameWon: gameWon);
+      if (gameWon) {
+        setChartStats(currentRow: currentRow);
+      }
+    }
+
+    notifyListeners();
+  }
+  checkWord4() {
+    List<String> guessed = [], remainingCorrect = [];
+    String guessedWord = "";
+
+    for (int i = currentRow * 4; i < (currentRow * 4) + 4; i++) {
+      guessed.add(tilesEntered[i].letter);
+    }
+
+    guessedWord = guessed.join();
+    remainingCorrect = correctWord.characters.toList();
+
+    if (guessedWord == correctWord) {
+      for (int i = currentRow * 4; i < (currentRow * 4) + 4; i++) {
+        tilesEntered[i].answerStage = AnswerStage.correct;
+        keysMap.update(tilesEntered[i].letter, (value) => AnswerStage.correct);
+        gameWon = true;
+        gameCompleted = true;
+      }
+    } else {
+      for (int i = 0; i < 4; i++) {
+        if (guessedWord[i] == correctWord[i]) {
+          remainingCorrect.remove(guessedWord[i]);
+          tilesEntered[i + (currentRow * 4)].answerStage = AnswerStage.correct;
+          keysMap.update(guessedWord[i], (value) => AnswerStage.correct);
+        }
+      }
+
+      for (int i = 0; i < remainingCorrect.length; i++) {
+        for (int j = 0; j < 4; j++) {
+          if (remainingCorrect[i] ==
+              tilesEntered[j + (currentRow * 4)].letter) {
+            if (tilesEntered[j + (currentRow * 4)].answerStage !=
+                AnswerStage.correct) {
+              tilesEntered[j + (currentRow * 4)].answerStage =
+                  AnswerStage.contains;
+            }
+
+            final resultKey = keysMap.entries.where((element) =>
+                element.key == tilesEntered[j + (currentRow * 4)].letter);
+
+            if (resultKey.single.value != AnswerStage.correct) {
+              keysMap.update(
+                  resultKey.single.key, (value) => AnswerStage.contains);
+            }
+          }
+        }
+      }
+      for (int i = currentRow * 4; i < (currentRow * 4) + 4; i++) {
         if (tilesEntered[i].answerStage == AnswerStage.notAnswered) {
           tilesEntered[i].answerStage = AnswerStage.incorrect;
 

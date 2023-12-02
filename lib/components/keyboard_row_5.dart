@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:wordle_clone/constants/answer_stages.dart';
 import 'package:wordle_clone/constants/colors.dart';
 
-import '../providers/controller.dart';
+import '../providers/controller_5.dart';
 import '../data/keys_map.dart';
 
 class KeyboardRow extends StatelessWidget {
@@ -19,7 +19,7 @@ class KeyboardRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
-    return Consumer<Controller>(
+    return Consumer<Controller_5>(
       builder: (_, notifier, __) {
         int index = 0;
         return IgnorePointer(
@@ -55,9 +55,9 @@ class KeyboardRow extends StatelessWidget {
                             color: color,
                             child: InkWell(
                                 onTap: () {
-                                  Provider.of<Controller>(context,
+                                  Provider.of<Controller_5>(context,
                                           listen: false)
-                                      .setKeyTapped(value: e.key);
+                                      .setKeyTapped5(value: e.key);
                                 },
                                 child: Center(
                                   child: e.key == 'BACK'

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wordle_clone/constants/answer_stages.dart';
 import 'package:wordle_clone/constants/colors.dart';
-import 'package:wordle_clone/providers/controller.dart';
+import 'package:wordle_clone/providers/controller_5.dart';
 
 class Tile extends StatefulWidget {
   const Tile({ required this.index,
@@ -49,7 +49,7 @@ void initState(){
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<Controller>(
+    return Consumer<Controller_5>(
       builder:(_,notifier,__){
       String text="";
       Color fontColor = Colors.white;

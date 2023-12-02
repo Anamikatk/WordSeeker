@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wordle_clone/pages/home.dart';
 // import 'package:wordle_clone/pages/home_page.dart';
-import 'package:wordle_clone/providers/controller.dart';
+import 'package:wordle_clone/providers/controller_5.dart';
+// import 'package:wordle_clone/providers/controller_4.dart';
 // import 'package:wordle_clone/pages/home_page.dart';
 import 'package:wordle_clone/providers/theme_provider.dart';
 import 'package:wordle_clone/utils/theme_preferences.dart';
@@ -22,7 +23,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_)=> Controller()),
+        ChangeNotifierProvider(create: (_)=> Controller_5()),
+        // ChangeNotifierProvider(create: (_)=> Controller_4()),
         ChangeNotifierProvider(create: (_)=> ThemeProvider()),
       ],
       child: FutureBuilder(

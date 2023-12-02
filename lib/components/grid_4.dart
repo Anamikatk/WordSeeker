@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wordle_clone/animations/bounce.dart';
-import 'package:wordle_clone/components/tile.dart';
+import 'package:wordle_clone/components/tile_5.dart';
 
 import '../animations/dance.dart';
-import '../providers/controller.dart';
+import '../providers/controller_5.dart';
 
 class Grid extends StatefulWidget {
   const Grid({
@@ -26,14 +26,14 @@ class _GridState extends State<Grid> {
     return GridView.builder(
         physics: const NeverScrollableScrollPhysics(),
         padding: const EdgeInsets.fromLTRB(36, 20, 36, 20),
-        itemCount: 30,
+        itemCount: 20,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           mainAxisSpacing: 4,
           crossAxisSpacing: 4,
-          crossAxisCount: 5,
+          crossAxisCount: 4,
         ),
         itemBuilder: (context, index) {
-          return Consumer<Controller>(
+          return Consumer<Controller_5>(
             builder: (_, notifier, __) {
               bool animate = false;
               bool animateDance = false;
@@ -43,12 +43,12 @@ class _GridState extends State<Grid> {
                 animate = true;
               }
               if (notifier.gameWon) {
-                for (int i = notifier.tilesEntered.length - 5;
+                for (int i = notifier.tilesEntered.length - 4;
                     i < notifier.tilesEntered.length;
                     i++) {
                   if (index == i) {
                     animateDance = true;
-                    danceDelay += 150 * (i - ((notifier.currentRow - 1) * 5));
+                    danceDelay += 150 * (i - ((notifier.currentRow - 1) * 4));
                   }
                 }
               }
