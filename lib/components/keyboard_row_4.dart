@@ -50,7 +50,7 @@ class KeyboardRow extends StatelessWidget {
                           width: e.key == 'ENTER' || e.key == 'BACK'
                               ? size.width * 0.13
                               : size.width * 0.085,
-                          height: size.height * 0.090,
+                          height: size.height * 0.085,
                           child: Material(
                             color: color,
                             child: InkWell(

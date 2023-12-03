@@ -105,9 +105,9 @@ void initState() {
             height: 1,
             thickness: 2,
           ),
-          Expanded(flex: 7, child: Grid()),
+          Expanded(flex: 9, child: Grid()),
           Expanded(
-            flex: 4,
+            flex:4,
             child: Column(
               children: [
                 KeyboardRow(
