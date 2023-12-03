@@ -6,7 +6,7 @@ import 'package:WordSeeker/utils/quick_box.dart';
 import '../components/grid_4.dart';
 import '../components/keyboard_row_4.dart';
 import '../components/stats_box.dart';
-import '../constants/words_4.dart';
+import '../constants/words4_large.dart';
 import '../providers/controller_5.dart';
 
 class Wordle4 extends StatefulWidget {
@@ -28,8 +28,8 @@ void initState() {
   // Provider.of<Controller>(context, listen: false).resetKeyboardColors();
 
   // Generate a new word
-  final r = Random().nextInt(words_4.length);
-  _word = words_4[r];
+  final r = Random().nextInt(words_4_large.length);
+  _word = words_4_large[r];
 
   // Set the correct word in the Controller
   WidgetsBinding.instance.addPostFrameCallback((timeStamp) {

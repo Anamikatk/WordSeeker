@@ -1,4 +1,5 @@
 import 'dart:math';
+// import 'package:WordSeeker/constants/words_5.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:WordSeeker/pages/settings.dart';
@@ -6,7 +7,7 @@ import 'package:WordSeeker/utils/quick_box.dart';
 import '../components/grid_5.dart';
 import '../components/keyboard_row_5.dart';
 import '../components/stats_box.dart';
-import '../constants/words_5.dart';
+import '../constants/words5_large.dart';
 import '../providers/controller_5.dart';
 
 class Wordle5 extends StatefulWidget {
@@ -28,8 +29,8 @@ void initState() {
   // Provider.of<Controller>(context, listen: false).resetKeyboardColors();
 
   // Generate a new word
-  final r = Random().nextInt(words_5.length);
-  _word = words_5[r];
+  final r = Random().nextInt(words_5_large.length);
+  _word = words_5_large[r];
 
   // Set the correct word in the Controller
   WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
