@@ -1,9 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:WordSeeker/constants/answer_stages.dart';
-import 'package:WordSeeker/constants/words_4.dart';
-import 'package:WordSeeker/constants/words_5.dart';
-import 'package:WordSeeker/constants/words_6.dart';
+// import 'package:WordSeeker/constants/words_4.dart';
+// import 'package:WordSeeker/constants/words_5.dart';
+// import 'package:WordSeeker/constants/words_6.dart';
+import 'package:WordSeeker/constants/words4_large.dart';
+import 'package:WordSeeker/constants/words5_large.dart';
+import 'package:WordSeeker/constants/words6_large.dart';
 import 'package:WordSeeker/models/tile_model.dart';
 import 'package:WordSeeker/utils/calculate_chart_stats.dart';
 
@@ -21,9 +24,9 @@ class Controller_5 extends ChangeNotifier {
   int currentTile = 0, currentRow = 0;
   List<TileModel> tilesEntered = [];
 
-  final Set<String> validWords4 = words_4.toSet();
-  final Set<String> validWords5 = words_5.toSet();
-  final Set<String> validWords6 = words_6.toSet(); // Use set for faster word lookup
+  final Set<String> validWords4 = words_4_large.toSet();
+  final Set<String> validWords5 = words_5_large.toSet();
+  final Set<String> validWords6 = words_6_large.toSet(); // Use set for faster word lookup
   bool validateWord4({required String enteredWord}) => validWords4.contains(enteredWord);
   bool validateWord5({required String enteredWord}) => validWords5.contains(enteredWord);
   bool validateWord6({required String enteredWord}) => validWords6.contains(enteredWord);
